@@ -2,10 +2,10 @@ Collection of scripts to liberate your data from the cloud services.
 
 # Using
 
-$ npm install -g liberate-me
-$ liberate-me dump-config > libme.json
-$ $EDITOR libme.json
-$ liberate-me libme.json target/
+    $ npm install -g liberate-me
+    $ liberate-me dump-config > libme.json
+    $ $EDITOR libme.json
+    $ liberate-me libme.json target/
 
 Run incremental backup on target/
 
