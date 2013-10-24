@@ -1,0 +1,11 @@
+{
+    "enabled": [ 
+      "trello" 
+    ],
+    "services": {
+        "trello": {
+            "key": "https://trello.com/1/appKey/generate",
+            "token": "https://trello.com/1/authorize?key={key}&name=My+Application&expiration=never&response_type=token"
+        }
+    }
+}

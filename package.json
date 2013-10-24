@@ -1,0 +1,36 @@
+{
+    "name" : "liberate-me",
+    "version" : "0.1.0",
+    "description" : "Liberates data from cloud services",
+    "main" : "./index.js",
+    "dependencies" : {
+        "commander" : "*",
+        "async" : "*",
+        "node-trello" : "*",
+        "mkdirp" : "*"
+    },
+    "devDependencies" : {
+        "mocha" : "*"
+    },
+    "scripts" : {
+        "liberate-me" : "./bin/liberate-me"
+    },
+    "repository" : {
+        "type" : "git",
+        "url" : "http://github.com/iElectric/liberate-me.git"
+    },
+    "keywords" : [
+        "data",
+        "cloud",
+        "liberation"
+    ],
+    "author" : {
+        "name" : "Domen Kožar",
+        "email" : "domen@dev.si",
+        "url" : "https://www.domenkozar.com"
+    },
+    "license" : "BSD",
+    "engine" : {
+        "node" : ">=0.4"
+    }
+}
