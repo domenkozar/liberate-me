@@ -7,7 +7,7 @@ Collection of scripts to liberate your data from the cloud services.
     $ $EDITOR libme.json
     $ liberate-me libme.json target/
 
-Run incremental backup on target/
+NOTE: Run incremental backup on target/
 
 # Supported services
 
@@ -21,7 +21,7 @@ Run incremental backup on target/
 
 # TODO
 
-- tests/travis
+- tests
 - testing guidelines
 
 - add https://github.com/iElectric/titanpad-backup-tool/blob/master/titanpad_backup.sh
