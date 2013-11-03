@@ -44,7 +44,7 @@ module.exports = function(argv) {
 
   
   // create output directory if it doesn't exist
-  mkdirp(output_directory, console.error);
+  mkdirp.sync(output_directory, console.error);
   
   //console.debug("Output directory: %s", output_directory);
   module.exports.launch_services(config, output_directory);
@@ -78,7 +78,7 @@ module.exports.launch_services = function launch_services(config, output_directo
     //console.debug("Configuration for %s: %s", service_name, config);
 
     console.info("Fetching data from %s", service_name);
-    mkdirp(service_directory, console.error);
+    mkdirp.sync(service_directory, console.error);
     service(service_config, service_directory);
   });
 };
