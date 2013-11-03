@@ -7,13 +7,18 @@
         "commander" : "*",
         "async" : "*",
         "node-trello" : "*",
-        "mkdirp" : "*"
+        "mkdirp" : "*",
+        "tv4" : "*"
     },
     "devDependencies" : {
-        "mocha" : "*"
+        "mocha" : "*",
+        "chai" : "*",
+        "sinon" : "*",
+        "temp" : "*"
     },
     "scripts" : {
-        "liberate-me" : "./bin/liberate-me"
+      "liberate-me" : "./bin/liberate-me",
+      "test": "./node_modules/istanbul/lib/cli.js cover _mocha -- -R spec"
     },
     "repository" : {
         "type" : "git",
@@ -31,9 +36,6 @@
     },
     "license" : "BSD",
     "engine" : {
-        "node" : ">=0.4"
-    },
-    "scripts": {
-      "test": "mocha"
+        "node" : ">=0.10"
     }
 }
