@@ -24,8 +24,6 @@ NOTE: Run incremental backup on target/
 # TODO
 
 - strip comments from JSON config: https://npmjs.org/package/jsonminify
-- https://npmjs.org/package/coveralls
-- https://github.com/alex-seville/travis-cov
 - testing guidelines
 - use json schema to validate config?
 - be able to specify json schema for services
