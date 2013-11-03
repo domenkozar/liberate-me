@@ -15,11 +15,13 @@
         "chai" : "*",
         "sinon" : "*",
         "temp" : "*",
-        "istanbul" : "*"
+        "istanbul" : "*",
+        "coveralls" : "*"
     },
     "scripts" : {
       "liberate-me" : "./bin/liberate-me",
-      "test": "./node_modules/istanbul/lib/cli.js cover _mocha -- -R spec"
+      "test": "./node_modules/istanbul/lib/cli.js cover _mocha -- -R spec",
+      "coverage":  "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
     },
     "repository" : {
         "type" : "git",

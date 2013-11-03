@@ -1,6 +1,6 @@
 Collection of scripts to liberate your data from the cloud services.
 
-[![Build Status](https://secure.travis-ci.org/iElectric/liberate-me.png?branch=master)](http://travis-ci.org/iElectric/liberate-me) [![NPM version](https://badge.fury.io/js/liberate-me.png)](http://badge.fury.io/js/liberate-me)
+[![Build Status](https://secure.travis-ci.org/iElectric/liberate-me.png?branch=master)](http://travis-ci.org/iElectric/liberate-me) [![Coverage Status](https://coveralls.io/repos/iElectric/liberate-me/badge.png)](https://coveralls.io/r/iElectric/liberate-me) [![NPM version](https://badge.fury.io/js/liberate-me.png)](http://badge.fury.io/js/liberate-me)
 
 # Usage
 
