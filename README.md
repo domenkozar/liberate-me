@@ -1,5 +1,7 @@
 Collection of scripts to liberate your data from the cloud services.
 
+[![Build Status](https://secure.travis-ci.org/iElectric/liberate-me.png?branch=master)](http://travis-ci.org/iElectric/liberate-me) [![NPM version](https://badge.fury.io/js/liberate-me.png)](http://badge.fury.io/js/liberate-me)
+
 # Usage
 
     $ npm install -g liberate-me
