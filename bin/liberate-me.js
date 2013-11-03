@@ -40,7 +40,6 @@ module.exports = function(argv) {
     process.exit(1);
   }
   config = require(config_filename);
-  validate_config(config);
   output_directory = path.resolve(process.cwd(), args[1]);
 
   
