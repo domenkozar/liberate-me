@@ -14,7 +14,8 @@
         "mocha" : "*",
         "chai" : "*",
         "sinon" : "*",
-        "temp" : "*"
+        "temp" : "*",
+        "istanbul" : "*"
     },
     "scripts" : {
       "liberate-me" : "./bin/liberate-me",
