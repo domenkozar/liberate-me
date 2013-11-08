@@ -12,10 +12,10 @@ var Trello = require("node-trello"),
     async = require('async');
 
 
-module.exports = function(config, service_directory) {
-   var t = new Trello(config.key,
-                      config.token),
-       boards_dir = path.resolve(service_directory, 'boards');
+module.exports = function(service) {
+   var t = new Trello(service.config.key,
+                      service.config.token),
+       boards_dir = path.resolve(service.directory, 'boards');
 
    mkdirp.sync(boards_dir);
 

@@ -40,9 +40,9 @@ module.exports = function(argv) {
     process.exit(1);
   }
   config = require(config_filename);
+  module.exports.validate_config(config);
   output_directory = path.resolve(process.cwd(), args[1]);
 
-  
   // create output directory if it doesn't exist
   mkdirp.sync(output_directory, console.error);
   
@@ -52,60 +52,83 @@ module.exports = function(argv) {
 };
 
 module.exports.launch_services = function launch_services(config, output_directory) {
-  if (config.enabled instanceof Array === false || config.enabled.length === 0) {
-    console.error("No services are enabled, specify 'enabled' property with a list of services in the config file.");
-    process.exit(1);
-  }
-
   async.each(config.enabled, function(service_name) {
-    var service_path = '../services/' + service_name + '.js',
-        service_directory = path.resolve(output_directory, service_name),
-        service,
-        service_config;
-
-    if (fs.existsSync(service_path) === false) {
-      console.error("Error: No such service %s.", path.basename(service_path));
-      process.exit(1);
-    } else {
-      service = require(service_path);
-    }
-
-    if (config.enabled instanceof Array === false || config.enabled.length === 0) {
-    } else {
-      service_config = config.services[service_name]; 
-    }
+    var service = new Service(service_name, config, output_directory);
 
     //console.debug("Configuration for %s: %s", service_name, config);
 
     console.info("Fetching data from %s", service_name);
-    mkdirp.sync(service_directory, console.error);
-    service(service_config, service_directory);
+    mkdirp.sync(service.directory, console.error);
+    service.execute();
   });
 };
 
+var Service = function(name, global_config, output_directory) { this.init(name, global_config, output_directory); };
+Service.prototype = {
+  init: function(name, global_config, output_directory) {
+    this.name = name;
+    this.config = global_config.services[name];
+    this.output_directory = output_directory;
+    this.directory = path.resolve(output_directory, name);
+  },
+
+  execute: function(config, directory) {
+    var service_path = path.resolve(__dirname, '../services/' + this.name + '.js'),
+        service = require(service_path);
+    return service(this);
+  }
+};
+module.exports.Service = Service;
+
 module.exports.validate_config = function validate_config(config) {
   var schema = {
-    "type": "object",
-    "properties": {
-        "enabled": { 
-          "type": "array",
-          "uniqueItems": true,
-          "items": { "enum": [ "trello", "trello2" ] },
-          // TODO: keys should exist as real services and have config in "services"
+        "type": "object",
+        "properties": {
+            "enabled": { 
+              "type": "array",
+              "uniqueItems": true,
+              "minItems": 1,
+              // TODO: "items": { "enum": [ "trello", "trello2" ] },
+            },
+            "services": {
+              "type": "object"
+            }
         },
-        "services": {
-          "type": "object"
-        }
-    },
-    "additionalProperties": false,
-    "required": [ "enabled", "services" ]
-  };
-  
-  var result = tv4.validateResult(config, schema);
+        "additionalProperties": false,
+        "required": [ "enabled", "services" ]
+      },
+      result = tv4.validateResult(config, schema);
   
   if (result.valid === false) {
-    console.log(result);
+    console.error("Error parsing configuration:");
+    if (result.error.schemaPath === '/properties/enabled/minItems') {
+      console.error("No services are enabled");
+      process.exit(1);
+    }
+    console.error(result.error.message);
+    process.exit(1);
+    // TODO: convert errors into user-readable messages
+    // - handle wrong type of enable
+    // - handle length 0 of enable
   }
+
+  async.each(config.enabled, function(service_name) {
+    var service_path = path.resolve(__dirname, '../services/' + service_name + '.js');
+
+    if (config.services[service_name] === undefined || config.services[service_name] === {}) {
+      console.error("Error parsing configuration:");
+      console.error("Service %s enabled but no configuration was supplied.", service_name);
+      process.exit(1);
+    }
+
+    if (fs.existsSync(service_path) === false) {
+      console.error("Error parsing configuration:");
+      console.error("Service %s is not supported, check for typos.", service_name);
+      process.exit(1);
+    }
+
+  });
+
 };
 
 // run if standalone

@@ -25,7 +25,6 @@ NOTE: Run incremental backup on target/
 
 - strip comments from JSON config: https://npmjs.org/package/jsonminify
 - testing guidelines
-- use json schema to validate config?
 - be able to specify json schema for services
 - add https://github.com/iElectric/titanpad-backup-tool/blob/master/titanpad_backup.sh
 - add google services
