@@ -13,18 +13,24 @@ var sinon = require('sinon'),
 temp.track();
 
 describe('bin/liberate-me', function() {
-  beforeEach(function() {
-    sinon.spy(process.stdout, "write");
-    sinon.spy(process.stderr, "write");
+  before(function() {
     sinon.stub(process, "exit", function() {
       throw new Error("exit");
     });
   });
 
+  after(function() {
+    process.exit.restore();
+  });
+
+  beforeEach(function() {
+    sinon.spy(process.stdout, "write");
+    sinon.spy(process.stderr, "write");
+  });
+
   afterEach(function() {
     process.stdout.write.restore();
     process.stderr.write.restore();
-    process.exit.restore();
   });
 
   describe('main', function() {
