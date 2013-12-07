@@ -14,7 +14,7 @@ NOTE: Run incremental backup on target/
 # Supported services
 
 - Trello
-- ...
+- ... add your own
 
 # Contributing
 
