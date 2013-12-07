@@ -19,7 +19,7 @@
         "coveralls" : "*"
     },
     "scripts" : {
-      "liberate-me" : "./bin/liberate-me",
+      "liberate-me" : "./lib/cli.js",
       "test": "./node_modules/istanbul/lib/cli.js cover _mocha -- -R spec",
       "coverage":  "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
     },

@@ -3,7 +3,8 @@
 // TODO: figure out how to supress stdout from liberate-me while testing
 
 var sinon = require('sinon'),
-    liberate_me = require('./../bin/liberate-me.js'),
+    liberate_me = require('../lib/cli.js'),
+    Service = require('../lib/service.js'),
     temp = require('temp'),
     path = require('path'),
     fs = require('fs'),
@@ -12,7 +13,7 @@ var sinon = require('sinon'),
 // Automatically track and cleanup files at exit
 temp.track();
 
-describe('bin/liberate-me', function() {
+describe('cli.js', function() {
   before(function() {
     sinon.stub(process, "exit", function() {
       throw new Error("exit");
@@ -94,11 +95,11 @@ describe('bin/liberate-me', function() {
 
   describe('launch_services', function() {
     beforeEach(function() {
-      sinon.stub(liberate_me.Service.prototype, "execute");
+      sinon.stub(Service.prototype, "execute");
     });
 
     afterEach(function() {
-      liberate_me.Service.prototype.execute.restore();
+      Service.prototype.execute.restore();
     });
 
     it('All configured services are invoked and directory is created if needed', function() {
