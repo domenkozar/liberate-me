@@ -1,0 +1,62 @@
+[{
+  "id": "50b41673d236ddc70d00e481",
+  "name": "Welcome Board",
+  "desc": "",
+  "descData": null,
+  "closed": true,
+  "idOrganization": null,
+  "invited": false,
+  "pinned": true,
+  "url": "https://trello.com/b/R7H3xkwh/welcome-board",
+  "prefs": {
+    "permissionLevel": "private",
+    "voting": "members",
+    "comments": "members",
+    "invitations": "members",
+    "selfJoin": false,
+    "cardCovers": true,
+    "backgroundColor": "#205C7E",
+    "backgroundImage": null,
+    "backgroundImageScaled": null,
+    "backgroundTile": false,
+    "backgroundBrightness": "unknown",
+    "bg": "blue",
+    "canBePublic": true,
+    "canBeOrg": true,
+    "canBePrivate": true,
+    "canInvite": true
+  },
+  "invitations": [],
+  "memberships": [
+    {
+      "id": "50b41673d236ddc70d00e482",
+      "idMember": "4e6a7faa05d98ba2ba00845c",
+      "memberType": "normal",
+      "deactivated": false,
+      "unconfirmed": false
+    },
+    {
+      "id": "50b41673d236ddc70d00e48d",
+      "idMember": "4e6a7faa05d98ba2ba00845c",
+      "memberType": "admin",
+      "deactivated": false,
+      "unconfirmed": false
+    }
+  ],
+  "shortLink": "R7H3xkwh",
+  "subscribed": false,
+  "labelNames": {
+    "red": "",
+    "orange": "",
+    "yellow": "",
+    "green": "",
+    "blue": "",
+    "purple": ""
+  },
+  "powerUps": [
+    "voting"
+  ],
+  "dateLastActivity": "2013-06-26T15:52:48.970Z",
+  "dateLastView": "2012-11-29T01:14:53.711Z",
+  "shortUrl": "https://trello.com/b/R7H3xkwh"
+}]
