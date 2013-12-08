@@ -1,6 +1,9 @@
-Collection of scripts to liberate your data from the cloud services.
-
 [![Build Status](https://secure.travis-ci.org/iElectric/liberate-me.png?branch=master)](http://travis-ci.org/iElectric/liberate-me) [![Coverage Status](https://coveralls.io/repos/iElectric/liberate-me/badge.png)](https://coveralls.io/r/iElectric/liberate-me) [![NPM version](https://badge.fury.io/js/liberate-me.png)](http://badge.fury.io/js/liberate-me)
+
+Collection of scripts to liberate your data from the cloud services. Serves two purposes:
+
+- backup of your data in case of X
+- offline access to your data
 
 # Usage
 
@@ -9,7 +12,7 @@ Collection of scripts to liberate your data from the cloud services.
     $ $EDITOR libme.json
     $ liberate-me libme.json target/
 
-NOTE: Run incremental backup on target/
+NOTE: After successful retrieval, run incremental backup job on `target/` directory.
 
 # Supported services
 
@@ -18,8 +21,9 @@ NOTE: Run incremental backup on target/
 
 # Contributing
 
-- all configuration should be done in libme.json.sample and include commented example that ships with this repository
+- all configuration should be done in `libme.json.sample` and include commented example that ships with this repository
 - name of the backend needs to match config subsection
+- test coverage
 
 # TODO
 
