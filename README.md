@@ -16,7 +16,7 @@ NOTE: After successful retrieval, run incremental backup job on `target/` direct
 
 # Supported services
 
-- Trello
+- [Trello](https://trello.com)
 - ... add your own
 
 # Contributing
